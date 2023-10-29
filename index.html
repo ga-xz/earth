@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>WebCatX</title>
+          <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 20px;
+    }
+    .card {
+      margin-bottom: 10px;
+    }
+    .input-group {
+      margin-bottom: 10px;
+    }
+    .input-group label {
+      display: block;
+    }
+    .input-group input {
+      width: 100%;
+      padding: 5px;
+      border: 1px solid #ccc;
+    }
+    .message {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Card Generator</h1>
+    
+    <div class="card">
+      <h2>Date Card</h2>
+      <button onclick="generateDateCard()">Generate Card</button>
+      <p id="dateCard"></p>
+    </div>
+    
+    <div class="card">
+      <h2>Permanent Card</h2>
+      <button onclick="generatePermanentCard()">Generate Card</button>
+      <p id="permanentCard"></p>
+    </div>
+    
+    <div class="card">
+      <h2>卡密认证</h2>
+      <div class="input-group">
+        <label for="inputCard">输入卡密:</label>
+        <input type="text" id="inputCard">
+      </div>
+      <button onclick="validateCard()">验证</button>
+      <p id="validationMessage"></p>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/blueimp-md5/js/md5.min.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>
