@@ -1,67 +1,118 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>WebCatX</title>
-          <style>
-    body {
-      font-family: Arial, sans-serif;
+<html lang="en">
+<head>
+  <meta charset = "UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="theme-color" content="#05ad40" />
+    <title>移动端地球</title>
+    <link rel="stylesheet" href="Cesium/Widgets/widgets.css">
+    <script src="Cesium/Cesium.js"></script>
+    <link rel="stylesheet" href="css/100.css">
+    <script src="jquery/jquery-3.7.1.min.js"></script>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family:'Helvetica','Droidsansfallback','Heiti SC';
+        }
+        #cesiumContainer{
+            width: 100%;
+            height: 100%;
+          
+        }
+    div{
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
+      text-anchor: none;
     }
-    .container {
-      max-width: 400px;
-      margin: 0 auto;
-      text-align: center;
-      padding: 20px;
-    }
-    .card {
-      margin-bottom: 10px;
-    }
-    .input-group {
-      margin-bottom: 10px;
-    }
-    .input-group label {
-      display: block;
-    }
-    .input-group input {
-      width: 100%;
-      padding: 5px;
-      border: 1px solid #ccc;
-    }
-    .message {
-      font-weight: bold;
-      margin-top: 10px;
-    }
-  </style>
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Card Generator</h1>
-    
-    <div class="card">
-      <h2>Date Card</h2>
-      <button onclick="generateDateCard()">Generate Card</button>
-      <p id="dateCard"></p>
-    </div>
-    
-    <div class="card">
-      <h2>Permanent Card</h2>
-      <button onclick="generatePermanentCard()">Generate Card</button>
-      <p id="permanentCard"></p>
-    </div>
-    
-    <div class="card">
-      <h2>卡密认证</h2>
-      <div class="input-group">
-        <label for="inputCard">输入卡密:</label>
-        <input type="text" id="inputCard">
-      </div>
-      <button onclick="validateCard()">验证</button>
-      <p id="validationMessage"></p>
-    </div>
+  <div id="begin">
+    <img src="img/7mO.9.png" class="m">
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/blueimp-md5/js/md5.min.js"></script>
-  <script src="script.js"></script>
 
+    <div id="cesiumContainer">
+      <!-- 透明灰全背景 -->
+      <div id="fulsh">
+      <!-- 公众号弹窗 -->
+        <div class="wecat">
+           <span class="ps">PS:&ensp;访问本网站请输入验证码</span>
+            <div class="wximg">
+              <img src="img/wxga.jpg" class="wxga">
+            </div>
+          <h2 class="psq">微信扫二维码关注公众号，发送“<p class="yzm">验证码</p>”获取</h2>
+            <input type="number" id="text" placeholder="请输入验证码，填写后点击右侧【提交】" />
+            <input type="button" id="confirm" value="提交">
+         <span class="tips">温馨提示：只需正确输入验证码，该弹窗即可关闭</span>
+    <!-- 提示 -->
+       <div id="blps">
+         <div class="cu1"></div>
+          <span class="cu">验证码错误!</span>
+       </div>
+       <!-- 提示2 -->
+        <div id="blpsa">
+          <div class="sr1">
+            <img src="img/srq.svg" class="srq">
+          </div>
+          <span class="sr">输入验证码</span>
+        </div>
+      </div>
+     </div>
+
+ </div>
+
+
+    <script src="js/index.js"></script>
+    <script src="js/100.js"></script>
+    <script src="md5/md5.js"></script>
+ 
+<script>
+//按键触发
+document.onkeydown = function(){
+  //禁止ctrl+u
+  if (event.ctrlKey && window.event.keyCode==85){
+  return false;
+  }
+  //禁止 F12
+  if (window.event && window.event.keyCode == 123) {
+  event.keyCode = 0;
+  event.returnValue = false;
+  }
+  //禁止ctrl+s
+  if (event.ctrlKey && window.event.keyCode==83){
+  return false;
+  }
+  //禁止 F5 
+  if (window.event && window.event.keyCode == 116) {
+  event.keyCode = 0;
+  event.returnValue = false;
+    }
+  }
+  //网站禁止右键
+  document.body.oncontextmenu = function() {
+  self.event.returnValue=false
+};
+  //网站禁止选择文字
+  document.body.onselectstart = function() {
+  self.event.returnValue=false
+};
+
+/*setTimeout(function(){
+  $('#begin').fadeOut(310);
+},5000);
+setTimeout(function(){
+  var xp = new Audio('mp3/windowsxp.mp3');
+  xp.play();
+},3000);
+    </script>
 </body>
 </html>
