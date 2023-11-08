@@ -1,5 +1,5 @@
     #begin{
-      display: none;
+     /* display: none;*/
       position: fixed;
       z-index: 999;
       top: 0;
@@ -23,7 +23,7 @@
   background-color: rgba(0, 0, 0, 0.57);
 }
 .wecat{
-  display: none;
+  /*display: none;*/
   width: 345px;
   height: 350px;
   background-color: #fff;

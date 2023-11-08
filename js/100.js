@@ -1,8 +1,8 @@
-//$ (function(){
-/*var text = document.getElementById('text');
+$ (function(){
+var text = document.getElementById('text');
 var confirm = document.querySelector('#confirm');
 
-/*var times = 3;
+var times = 3;
 var mydata = localStorage.getItem("mydata");
 if (mydata == null && $('#fulsh').is(':hidden')) {
   setTimeout(function(){
@@ -18,7 +18,7 @@ if (mydata == null && $('#fulsh').is(':hidden')) {
     localStorage.setItem('mydata', newtime);
   }
   $('#fulsh').hide();
-}*/
+}
 confirm.addEventListener('click', function (){
   //var cu = document.querySelector('.cu');
   var pas = '1128ddf6c185cf47c9fb2126eaf630eb';
@@ -31,8 +31,12 @@ confirm.addEventListener('click', function (){
      },3000);
         
   } else  if (hex_md5(text.value) == pas){
-    $('#fulsh').fadeOut(200);
-    //localStorage.setItem("mydata", times);
+    setTimeout(function (){
+      $('#fulsh').fadeOut(210);
+    },500);
+    localStorage.setItem("mydata", times);
+    var din = new Audio('mp3/dind.mp3');
+    din.play();
     //alert('hbv')
   } else {
      $('#blps').fadeIn(210);
@@ -42,9 +46,8 @@ confirm.addEventListener('click', function (){
      setTimeout(function (){
        $('#blps').fadeOut(210);
      },3000);
-  }
-
-  })*/
+   }
+  });
   // 清除所有的缓存数据
 //localStorage.clear();
-//})
+})
