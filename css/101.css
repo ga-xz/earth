@@ -1,0 +1,319 @@
+/*返回关闭*/
+#sthu{
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  cursor: pointer;
+}
+.cg{
+  width: 100%;
+  position: absolute;
+}
+/*支付宝红包*/
+#hb-bok{
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 99;
+}
+.hb{
+  width: 80%;
+  max-width: 620px;
+  height: 80%;
+  max-height: 720px;
+  background-color: #FFFBEE;
+  border-radius: 3px;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  box-shadow: 0 0 5px 1px rgba(166, 166, 166, 0.48);
+  
+}
+.hbw{
+  width: 300px;
+  height: 400px;
+  position: relative;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  
+}
+.hb-bg{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 55px;
+  background-color: #f35641;
+  border-radius: 3px;
+  border-bottom-left-radius: 180px 50px;
+  border-bottom-right-radius: 180px 50px;
+  
+}
+.hb-zfb{
+  position: absolute;
+  top: 80px;
+  left: 0;
+  width: 100%;
+  height: 34px;
+}
+.hb-np{
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  transform: translate(-50%,-50%);
+}
+.hb-zfb span{
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  transform: translate(-50%,-50%);
+  color: #202020;
+  white-space: nowrap;
+}
+#hb-hp{
+  width: 34px;
+  height: 34px;
+  background-color: rgba(255, 181, 0, 0.83);
+  border-radius: 50%;
+  position: absolute;
+  bottom: -40px;
+  left: 48%;
+  cursor: pointer;
+}
+#hb-hp img{
+  width: 100%;
+  position: absolute;
+}
+/*微信支付*/
+#set-wx{
+  width: 120px;
+  height: 50px;
+  background-color: #84FC84;
+  position: absolute;
+  bottom: 10px;
+  left: 2%;
+  cursor: pointer;
+}
+.sets{
+  width: 13px;
+  height: 25px;
+  background-color: #fff;
+  position: absolute;
+  top: 9px;
+  left: 25px;
+  transform: rotate(65deg);
+  border-top-left-radius: 9px;
+  border-top-right-radius: 5px;
+}
+.wx-s{
+  position: absolute;
+  top: 9px;
+  left: 9px;
+}
+#set-wx span{
+  position: absolute;
+  top: 10px;
+  left: 60px;
+  font-size: 20px;
+}
+#set-wx:active{
+  background-color: #217501;
+}
+
+/*支付宝支付*/
+#set-zfb{
+  width: 120px;
+  height: 50px;
+  background-color: #A7CEFF;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translate(-50%);
+  cursor: pointer;
+}
+.zfbs{
+  width: 31px;
+  height: 31px;
+  background-color: #fff;
+  position: absolute;
+  top: 9px;
+  left: 9px;
+  border-radius: 6px;
+}
+.zfb-s{
+  position: absolute;
+}
+#set-zfb span{
+  position: absolute;
+  top: 10px;
+  left: 55px;
+  font-size: 20px;
+}
+#set-zfb:active{
+  background-color: #2667B7;
+}
+/*QQ支付*/
+#set-qq{
+  width: 120px;
+  height: 50px;
+  background-color: #C8E5FF;
+  position: absolute;
+  bottom: 10px;
+  right: 2%;
+  cursor: pointer;
+}
+.qq-img{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  position: absolute;
+  background-color: #EEFCFF;
+  top: 5px;
+  left: 9px;
+}
+.qq-s{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+#set-qq span{
+  position: absolute;
+  top: 10px;
+  left: 60px;
+  font-size: 20px;
+}
+#set-qq:active{
+  background-color: #6AA0C6;
+}
+/*支付宝红包*/
+#set-hb{
+  width: 200px;
+  height: 75px;
+  position: absolute;
+  background-color: #fa9e37;
+  bottom: 300px;
+  right: 14px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+#set-hb .gx{
+  color: #fff;
+  position: absolute;
+  left: 40px;
+  top: 8px;
+}
+.zfhb-s{
+  position: absolute;
+  top: 2px;
+  left: 4px;
+}
+#set-hb::before{
+  content: '支付宝红包';
+  position: absolute;
+  bottom: 3px;
+  left: 5px;
+  color: #4F4F4F;
+  font-size: 10px;
+  
+}
+#set-hb::after{
+  content:'';
+  position: absolute;
+  bottom: 20px;
+  width: 200px;
+  height: 0.5px;
+  background-color: #fff;
+}
+#set-hb:active{
+  background-color: #D58C0B;
+}
+/*支持一下提示*/
+.sup-por{
+  width: 100%;
+  height: 50px;
+  border-radius: 4px;
+  position: absolute;
+  bottom: 380px;
+}
+.sup-emoji{
+  position: absolute;
+  left: 95px;
+  top: 2px;
+}
+.sup-chi{
+  font-size: 19px;
+  color: #B81904;
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+}
+/*版本*/
+#edion{
+  width: 90%;
+  height: 50px;
+  border-top: 0.5px solid rgba(0, 0, 0, 0.82);
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.82);
+  position: absolute;
+  left: 5%;
+  bottom: 40px;
+  cursor: pointer;
+}
+#edion span {
+  position: absolute;
+  top: 14px;
+  left: 30px;
+}
+#edion p{
+  position: absolute;
+  top: 0;
+  left: 80px;
+  color: rgba(181, 46, 46, 1);
+}
+/*地理测绘*/
+#maping{
+   width: 90%;
+  height: 50px;
+  border-top: 0.5px solid rgba(0, 0, 0, 0.82);
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.82);
+  position: absolute;
+  left: 5%;
+  bottom: 120px;
+  cursor: pointer;
+}
+#maping span{
+  position: absolute;
+  top: 13px;
+  left: 50px;
+}
+/*支持按钮*/
+#sup-ok{
+  width: 80px;
+  height: 50px;
+  background-color: rgba(25, 107, 238, 1);
+  position: absolute;
+  left: 45px;
+  bottom: 220px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  cursor: pointer;
+}
+#sup-ok span{
+  color: #fff;
+  font-size: 20px;
+}
+#sup-ok:active{
+  background-color: rgba(8, 77, 113, 1);
+}
