@@ -1,30 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cmn-hans">
 <head>
-  <meta charset = "UTF-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="theme-color" content="#05ad40" />
-    <title>移动端地球</title>
-    <link rel="stylesheet" href="Cesium/Widgets/widgets.css">
-    <script src="Cesium/Cesium.js"></script>
-    <link rel="stylesheet" href="css/100.css">
-    <script src="jquery/jquery-3.7.1.min.js"></script>
+     <title>3D地球内测</title>
+  <link rel="shortcut icon" type="image/x-icon" href="img/icon.png">
+  <link rel="stylesheet" href="Cesium/Widgets/widgets.css">
+  <script src="Cesium/Cesium.js"></script>
+  <link rel="stylesheet" href="css/100.css">
+  <link rel="stylesheet" href="css/101.css">
+  <link rel="stylesheet" href="css/102.css">
+  <script src="jquery/jquery-3.7.1.min.js"></script>
     <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            font-family:'Helvetica','Droidsansfallback','Heiti SC';
-        }
-        #cesiumContainer{
-            width: 100%;
-            height: 100%;
+html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family:'Helvetica','Droidsansfallback','Heiti SC';
+    }
+#cesiumContainer{
+      width: 100%;
+      height: 100%;
           
-        }
-    div{
+    }
+div{
       user-select: none;
       -webkit-user-select: none;
       -moz-user-select: none;
@@ -33,13 +36,59 @@
       -webkit-tap-highlight-color: transparent;
       text-anchor: none;
     }
+.carry{
+  width: 50px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 999;
+   }
+   svg{
+     border-radius: 50%;
+     transform-origin: center;
+     animation: rotate 2.5s linear infinite;
+   }
+   circle{
+     fill: none;
+     stroke: #00CAFF;
+     stroke-width: 10;
+     stroke-dasharray: 1, 200;
+     stroke-dashoffset: 0;
+     animation: dash 1.5s ease-in-out infinite;
+   }
+   @keyframes rotate{
+     100%{
+       transform: rotate(360deg);
+     }
+   }
+   @keyframes dash{
+     0%{
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+     }
+     50%{
+       stroke-dasharray: 90, 200;
+       stroke-dashoffset: -35px;
+     }
+     100%{
+      stroke-dashoffset: -125;
+     }
+   }
     </style>
 </head>
 <body>
-  <div id="begin">
+<!-- 开头动画 -->
+   <div id="begin">
     <img src="img/7mO.9.png" class="m">
-  </div>
-
+  <!-- 圆环加载动画 -->
+    <div class="carry">
+        <svg viewBox="20 20 40 40">
+           <circle cx="40" cy="40" r="20"></circle>
+        </svg>
+      </div>
+  </div> 
+<!-- 地球显示 -->
     <div id="cesiumContainer">
       <!-- 透明灰全背景 -->
       <div id="fulsh">
@@ -50,9 +99,12 @@
               <img src="img/wxga.jpg" class="wxga">
             </div>
           <h2 class="psq">微信扫二维码关注公众号，发送“<p class="yzm">验证码</p>”获取</h2>
-            <input type="number" id="text" placeholder="请输入验证码，填写后点击右侧【提交】" />
+          <div class="input-box">
+            <input type="text" id="text" inputmode="numeric" required/>
+            <span class="span">验证码</span>
             <input type="button" id="confirm" value="提交">
-         <span class="tips">温馨提示：只需正确输入验证码，该弹窗即可关闭</span>
+          </div>
+         <span class="tips">温馨提示：只需输入正确验证码，该弹窗即可关闭</span>
     <!-- 提示 -->
        <div id="blps">
          <div class="cu1"></div>
@@ -67,9 +119,140 @@
         </div>
       </div>
      </div>
-
- </div>
-
+     <!-- 版本详情 -->
+     <div id="edito">
+       <span>更新日志</span>
+       <div id="edi-ou">
+         <img src="img/hP.png" >
+       </div>
+       <iframe src="html/update.html" frameborder="0"></iframe>
+     </div>
+     <!-- 地理测绘法 -->
+     <div id="mapin">
+       <span>《中华人民共和国测绘法》</span>
+       <div id="mapin-ou">
+         <img src="img/cg.svg">
+       </div>
+       <iframe src="html/SMOfChina.html" frameborder="0"></iframe>
+     </div>
+  <!-- 设置界面 -->
+    <div id="set-int">
+      <!-- 地理测绘 -->
+      <div id="maping">
+        <span>关于地理测绘法</span>
+      </div>
+      <!-- 版本 -->
+       <div id="edion">
+         <span>版本</span>
+          <p>v1.0.0</p>
+       </div>
+      <!-- 返回 -->
+      <div id="sthu">
+        <img src="img/cg.svg" class="cg">
+      </div>
+      <!-- 支持一下 -->
+      <div class="sup-por">
+        <div class="sup-emoji">😭😫</div>
+        <span class="sup-chi">支持一下吧，开发不容易</span>
+      </div>
+      <!-- 支持按钮 -->
+      <div id="sup-ok">
+        <span>支持</span>
+      </div>
+      
+    <!-- 支付宝红包 -->
+     <div id="set-hb">
+          <img src="img/hb1.svg" class="zfhb-s">
+          <span class="gx">恭喜发财，大吉大利</span>
+      </div>
+    </div>
+    
+    <!-- 收款码 -->
+     <div class="yard">
+       <!-- 收款码界面 -->
+       <div id="yard-s">
+          <!-- 关闭 -->
+          <div id="shut">
+             <img src="img/cg.svg" class="shut-cg">
+          </div>
+         <!-- 微信 -->
+         <img src="img/wxzf.png" class="s-wx">
+         <!-- 支付宝 -->
+         <img src="img/zfbzf.png" class="s-zfb" >
+         <!-- QQ支付 -->
+         <img src="img/qqzf.png" class="s-qqzf" >
+      <!-- 微信切换 -->
+      <div id="set-wx">
+           <div class="sets"></div>
+           <img src="img/EmR.svg" class="wx-s">
+        <span>微信</span>
+      </div>
+      <!-- 支付宝切换 -->
+      <div id="set-zfb">
+        <div class="zfbs">
+           <img src="img/1nU.svg" class="zfb-s">
+        </div>
+        <span>支付宝</span>
+      </div>
+      <!-- QQ切换 -->
+      <div id="set-qq">
+        <div class="qq-img">
+         <img src="img/Ni.svg" class="qq-s">
+        </div>
+          <span>QQ</span>
+       </div>
+      
+   </div>
+</div>
+    <!-- 弹窗提示 -->
+    <div id="full">
+      <div class="full-ti">
+        <p>提示</p>
+        <span>此功能暂时不可用</span>
+       <div id="full-con">
+         <span>确定</span>
+       </div>
+      </div>
+    </div>
+    <!-- 个人 -->
+      <div id="human">
+        <img src="img/Wi1.svg" class="human-img">
+      </div>
+  <!-- 设置 -->
+    <div id="set">
+       <img src="img/RLe.svg" class="set-q">
+    </div>
+    <!-- 指南针 -->
+    <div id="compass">
+      <img src="img/compass.svg" class="compass-e">
+    </div>
+    <!-- 经纬度 -->
+    <div id="coordinates">
+      <!-- 版权-->
+         <div class="riht">
+             <span>Copyright&copy;2023&nbsp;&nbsp;GA享者</span>
+         </div>
+     <!-- 经纬度 -->
+      <div class="jing"></div>
+      <div class="wei"></div>
+    </div>
+  <!-- 支付宝红包 -->
+  <div id="hb-bok">
+    <div class="hb">
+       <div class="hb-bg"></div>
+        <div class="hb-zfb">
+          <img src="img/1nU.svg" class="hb-np">
+          <span>支付宝【扫一扫】</span>
+        </div>
+      <img src="img/zfbhb.jpg" class="hbw">
+       <!-- 关闭 -->
+        <div id="hb-hp">
+          <img src="img/hP.png" >
+         </div>
+      </div>
+    </div>
+    
+  </div>
 
     <script src="js/index.js"></script>
     <script src="js/100.js"></script>
@@ -79,37 +262,92 @@
 //按键触发
 document.onkeydown = function(){
   //禁止ctrl+u
-  if (event.ctrlKey && window.event.keyCode==85){
+if (event.ctrlKey && window.event.keyCode == 85){
   return false;
   }
   //禁止 F12
-  if (window.event && window.event.keyCode == 123) {
-  event.keyCode = 0;
-  event.returnValue = false;
+if (window.event && window.event.keyCode == 123) {
+    event.keyCode = 0;
+    event.returnValue = false;
   }
   //禁止ctrl+s
-  if (event.ctrlKey && window.event.keyCode==83){
+if (event.ctrlKey && window.event.keyCode == 83){
   return false;
   }
   //禁止 F5 
-  if (window.event && window.event.keyCode == 116) {
-  event.keyCode = 0;
-  event.returnValue = false;
+if (window.event && window.event.keyCode == 116) {
+    event.keyCode = 0;
+    event.returnValue = false;
     }
-  }
+  };
   //网站禁止右键
-  document.body.oncontextmenu = function() {
-  self.event.returnValue=false
+document.body.oncontextmenu = function() {
+    self.event.returnValue = false
 };
   //网站禁止选择文字
-  document.body.onselectstart = function() {
-  self.event.returnValue=false
+document.body.onselectstart = function() {
+    self.event.returnValue = false
 };
+$( function(){
 setTimeout(function(){
-  $('#begin').fadeOut(310);
-  var xp = new Audio('mp3/windowsxp.mp3');
-  xp.play();
-},4000);
-    </script>
+  $('#begin').fadeOut(410);
+},5000);
+setTimeout(function(){
+  var x = new Audio('mp3/windowsxp.mp3');
+  x.play();
+},4200);
+
+});
+</script>
+<script>
+$ (function(){
+var text = document.getElementById('text');
+var confirm = document.querySelector('#confirm');
+
+var times = 3; //3次刷新后再次弹出
+var mydata = localStorage.getItem("mydata");
+if (mydata == null && $('#fulsh').is(':hidden')) {
+  setTimeout(function(){
+    $('#fulsh').fadeIn();
+  },1000)
+} else {
+  if (mydata == 0) {
+     setTimeout(function(){
+       $('#fulsh').fadeIn();
+     },1000)
+  } else {
+    var newtime = mydata * 1 - 1;
+    localStorage.setItem('mydata', newtime);
+  }
+  $('#fulsh').hide();
+}
+confirm.addEventListener('click', function (){
+  //var cu = document.querySelector('.cu');
+  var pas = '1128ddf6c185cf47c9fb2126eaf630eb';
+  if (text.value == ''){
+    $('#blpsa').fadeIn(210);
+    var wx = new Audio('mp3/wx.mp3');
+     wx.play();
+     setTimeout(function (){
+       $('#blpsa').fadeOut(210);
+     },3000);
+      //判断密码
+  } else  if (hex_md5(text.value) == pas){
+    $('#fulsh').fadeOut(200);
+    localStorage.setItem("mydata", times);
+    //alert('正确')
+  } else {
+     $('#blps').fadeIn(210);
+     var outw = new Audio('mp3/ou.mp3');
+    outw.play();
+     setTimeout(function (){
+       $('#blps').fadeOut(210);
+     },3000);
+  }
+})
+    // 清除所有的缓存数据
+  //localStorage.clear();
+ });
+</script>
 </body>
 </html>
