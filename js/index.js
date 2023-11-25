@@ -114,7 +114,7 @@ function resetCameraPosition() {
 }
 //定位
 
-navigator.geolocation.getCurrentPosition(
+/*navigator.geolocation.getCurrentPosition(
   function(position) {
     var latitude = position.coords.latitude;
     var longitude = position.coords.longitude;
@@ -151,4 +151,4 @@ navigator.geolocation.getCurrentPosition(
     //console.error("Error getting the user's location", error);
   },
   { enableHighAccuracy: true } // 提高精确度
-);
+);*/
