@@ -1,24 +1,7 @@
-/*$ (function(){
+$ (function(){
 var text = document.getElementById('text');
 var confirm = document.querySelector('#confirm');
 
-var times = null;
-var mydata = localStorage.getItem("mydata");
-if (mydata == null && $('#fulsh').is(':hidden')) {
-  setTimeout(function(){
-    $('#fulsh').fadeIn();
-  },1000)
-} else {
-  if (mydata == 0) {
-     setTimeout(function(){
-       $('#fulsh').fadeIn();
-     },1000)
-  } else {
-    var newtime = mydata * 1 - 1;
-    localStorage.setItem('mydata', newtime);
-  }
-  $('#fulsh').hide();
-}
 confirm.addEventListener('click', function (){
   //var cu = document.querySelector('.cu');
   var pas = '1128ddf6c185cf47c9fb2126eaf630eb';
@@ -32,7 +15,7 @@ confirm.addEventListener('click', function (){
         
   } else  if (hex_md5(text.value) == pas){
     $('#fulsh').fadeOut(200);
-    localStorage.setItem("mydata", times);
+    //localStorage.setItem("mydata", times);
     //alert('hbv')
   } else {
      $('#blps').fadeIn(210);
@@ -46,8 +29,6 @@ confirm.addEventListener('click', function (){
   })
   // 清除所有的缓存数据
 //localStorage.clear();
-});*/
-$(function(){
   //弹窗提示
   $('#full-con').click(function(){
     setTimeout(function(){
